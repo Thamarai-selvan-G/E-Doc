@@ -1,0 +1,132 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Arvo", serif; 
+}
+.parentContainer{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.backBlack2{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.header{
+    width: 90%;
+    height: 150px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid grey;
+    /* background-color: blue; */
+}
+.addUser{
+    width: 170px;
+    height: 40px;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #3B82F6;
+    font-family: "Arvo", serif;
+}
+.addUser span{
+    font-weight: 800;
+    font-size: 25px;
+}
+.addUser:hover{
+    background-color: #2563EB;
+}
+.userInfo{
+    height: 250px;
+    width: 600px;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 2px solid #3B82F6;
+    border-radius: 15px;
+    background-color: white;
+}
+.lineOne{
+    width: 90%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: yellow; */
+}
+.lineOne p{
+    font-weight: 700;
+    font-size: 27px;
+    color: red;
+}
+.lineTwo{
+    width: 90%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* background-color: violet; */
+}
+.lineTwo input{
+    width: 60%;
+    height: 35%;
+    border: none;
+    background-color: antiquewhite;
+    border-radius: 5px;
+}
+.lineThree{
+    width: 90%;
+    height: 30%;
+    display: flex;
+    justify-content: end;
+    gap: 40px;
+    align-items: center;
+    /* background-color: tomato; */
+}
+.btn1{
+    height: 45%;
+    width: 18%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: 600;
+    font-family: "Arvo", serif;
+    background-color: #3B82F6;
+    color: white;
+}
+.btn1:hover{
+    background-color: #2563EB;
+}
+.btn2{
+    height: 45%;
+    width: 18%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: 600;
+    font-family: "Arvo", serif;
+    background-color: #64748B;
+    color: white;
+}
+.btn2:hover{
+    background-color:#475569 ;
+}
