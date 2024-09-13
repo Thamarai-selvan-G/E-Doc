@@ -6,12 +6,10 @@ let mySlice = createSlice({
     user: [],
   },
   reducers: {
-    setUsers(store, action) {
-
-        store.user = action.payload
-        console.log(store.user);
-        
-    }
+    addUser(store, action) {
+      store.user.push(action.payload);
+      // console.log(store.user);
+    },
   },
 });
 

@@ -1,32 +1,30 @@
-import React, { useRef } from "react";
-import "./Home.css";
+// components/Home.js
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { myReducers } from "../../store/Store";
 import { IoMdAdd } from "react-icons/io";
 import { SlClose } from "react-icons/sl";
 import { GrFormClose } from "react-icons/gr";
 import { VscCheck } from "react-icons/vsc";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { myReducers } from "../../store/Store";
+import Upload from "../../components/upload/Upload";
+import "./Home.css";
+
 const Home = () => {
   let [display, setDisplay] = useState(false);
   let [css, setCss] = useState(false);
-
   let [userName, setUserName] = useState("");
-  const [getarr, setgetarr] = useState([]);
 
   let dispatch = useDispatch();
 
   function sendUser() {
-    let updateuser = [...getarr, userName];
-    setgetarr(updateuser);
-    dispatch(myReducers.setUsers(updateuser));
-    setDisplay(!display);
-    setCss(!css);
+    dispatch(myReducers.addUser({ name: userName, docName: "" }));
+    setDisplay(false);
+    setCss(false);
   }
 
   return (
     <div className="parentContainer">
-      <div className={css == true ? "backBlack2" : "backBlack"}>
+      <div className={css ? "backBlack2" : "backBlack"}>
         <div className="header">
           <h1 className="head">Upload Documents</h1>
           <button
@@ -42,14 +40,18 @@ const Home = () => {
       {display && (
         <div className="userInfo">
           <div className="lineOne">
-            <h3> Add applicant</h3>
+            <h3>Add applicant</h3>
             <p onClick={() => (setDisplay(!display), setCss(!css))}>
               <SlClose />
             </p>
           </div>
           <div className="lineTwo">
             <label>Name</label>
-            <input type="text" onChange={(e) => setUserName(e.target.value)} />
+            <input
+              type="text"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+            />
           </div>
           <div className="lineThree">
             <button className="btn1" onClick={sendUser}>
@@ -69,6 +71,7 @@ const Home = () => {
           </div>
         </div>
       )}
+      <Upload />
     </div>
   );
 };

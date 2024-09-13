@@ -1,51 +1,72 @@
-body{
-    margin: 0;
-    padding: 0;
-    font-family: "Arvo", serif; 
-}
-.parentContainer{
-  width: 100%;
-  height: 100vh;
-  position: relative;
-}
-.backBlack2{
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-.header{
+.userParent{
+    height: 80vh;
     width: 90%;
-    height: 130px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid grey;
-    /* background-color: blue; */
+    margin: 0 auto;   
+    background-color: yellowgreen;
 }
-.addUser{
-    width: 170px;
-    height: 40px;
+.nameRow{
+    width: 100%;
+    height:75px;
     display: flex;
+    align-items: center;
     gap: 5px;
-    justify-content: center;
+    background-color: tomato;
+}
+.nameHead{
+    height: 70px;
+    width: 150px;
+    display: flex;
     align-items: center;
+    justify-content: space-around;
     font-size: 17px;
-    font-weight: 600;
-    border-radius: 5px;
-    border: none;
+    background-color: yellow;
+}
+.nameHead p{
+    display: flex;
+ 
     color: white;
-    background-color: #3B82F6;
-    font-family: "Arvo", serif;
-}
-.addUser span{
-    font-weight: 800;
     font-size: 25px;
+    padding: 6px 8px;
+    background-color: #3B82F6;
+    border-radius: 8px;
 }
-.addUser:hover{
-    background-color: #2563EB;
+.nameHead p:hover{
+    background-color: red;
     transition: 0.2s;
 }
+.addDocParent{
+    height: 70%;
+    width: 20%;
+    background-color: blueviolet;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.docList p{
+    background-color: #3B82F6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    gap: 4px;
+    font-size: 17px;
+}
+
+.list ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+.list li{
+   padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: violet;
+}
+
 .userInfo{
     height: 250px;
     width: 600px;
@@ -132,4 +153,9 @@ body{
 .btn2:hover{
     background-color:#475569 ;
     transition: 0.2s;
+}
+.backBlack2{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
 }
