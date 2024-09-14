@@ -10,6 +10,9 @@ let mySlice = createSlice({
       store.user.push(action.payload);
       // console.log(store.user);
     },
+    deleteUser(store,action){
+      store.user = store.user.filter((val)=>val.name !== action.payload)
+    }
   },
 });
 

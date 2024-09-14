@@ -17,7 +17,14 @@ const Home = () => {
   let dispatch = useDispatch();
 
   function sendUser() {
-    dispatch(myReducers.addUser({ name: userName, docName: "" }));
+    dispatch(
+      myReducers.addUser({
+        name: userName,
+        docName: "docNameee",
+        docFile: "docFileee",
+      })
+    );
+    setUserName("");
     setDisplay(false);
     setCss(false);
   }

@@ -8,8 +8,25 @@ const Upload = () => {
   let userDatas = useSelector(function (data) {
     return data.user;
   });
+  let dispatch = useDispatch();
+
+  function deleteUser(e) {
+    dispatch(myReducers.deleteUser(e))
+
+    if (selectedUser && selectedUser.name == e) {
+      setSelectedUser(null)
+    }
+  }
   console.log(userDatas);
 
+  const [selectedUser, setSelectedUser] = useState(null);
+  function userDocs(val) {
+    if (!val) {
+      setSelectedUser(null)
+    } 
+    setSelectedUser(val)
+  }
+  
   return (
     <div>
       <div className="userParent">
@@ -18,14 +35,25 @@ const Upload = () => {
             userDatas.map((value, index) => {
               return (
                 <div className="nameHead" key={index}>
-                  <h4>{value.name}</h4>
-                  <p>
+                  <h4
+                    onClick={() => {
+                      userDocs(value);
+                    }}>
+                    {value.name}
+                  </h4>
+                  <p onClick={() => deleteUser(value.name)}>
                     <RiDeleteBin5Fill />
                   </p>
                 </div>
               );
             })}
         </div>
+        {selectedUser && (
+          <div className="userDetcontainer">
+            <h1> docName :{selectedUser.docName} </h1>
+            <h1>fileName : {selectedUser.docFile} </h1>
+          </div>
+        )}
       </div>
     </div>
   );
