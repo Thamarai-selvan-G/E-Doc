@@ -20,8 +20,8 @@ const Home = () => {
     dispatch(
       myReducers.addUser({
         name: userName,
-        docName: "docNameee",
-        docFile: "docFileee",
+        docName: [],
+        docFile: "",
       })
     );
     setUserName("");

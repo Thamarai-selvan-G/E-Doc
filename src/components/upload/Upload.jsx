@@ -7,11 +7,13 @@ import { VscCheck } from "react-icons/vsc";
 import { useDispatch, useSelector } from "react-redux";
 import { myReducers } from "../../store/Store";
 import { useState } from "react";
+import { useRef } from "react";
 const Upload = () => {
   let userDatas = useSelector(function (data) {
     return data.user;
   });
   let dispatch = useDispatch();
+  const [selectedUser, setSelectedUser] = useState(null);
 
   function deleteUser(e) {
     dispatch(myReducers.deleteUser(e));
@@ -22,7 +24,6 @@ const Upload = () => {
   }
   console.log(userDatas);
 
-  const [selectedUser, setSelectedUser] = useState(null);
   function userDocs(val) {
     if (!val) {
       setSelectedUser(null);
@@ -31,7 +32,28 @@ const Upload = () => {
   }
 
   let [css, setCss] = useState(false);
+  let nameDoc = useRef("");
+  
+  function saveDocName() {
+    if (nameDoc.current.value && selectedUser) {
+     
+      dispatch(
+        myReducers.setDocName({
+          selecteName: selectedUser.name,
+          docName: nameDoc.current.value,
+        })
+      );
+      const updatedUser = {
+        ...selectedUser,
+        docName: [...selectedUser.docName, nameDoc.current.value]
+      };
 
+      setSelectedUser(updatedUser)
+    }
+    setCss(false);
+    nameDoc.current.value = "";
+  }
+ console.log(selectedUser)
   return (
     <div>
       <div className="userParent">
@@ -56,11 +78,23 @@ const Upload = () => {
         {selectedUser && (
           <div className="userDetcontainer">
             <div className="userList">
-              <div className="docNameList">
-                <p>{selectedUser.docName}</p>
+              <div className="style">
+                
+              {selectedUser.docName &&
+                selectedUser.docName.map((val, index) => {
+                  return (
+                    <div className="docNameList" key={index}>
+                      <p>{val}</p>
+                    </div>
+                  );
+                })}
+                
               </div>
-
-              <p className="addDocBtn" onClick={() => setCss(true)}>
+              <p
+                className="addDocBtn"
+                onClick={() => {
+                  setCss(true);
+                }}>
                 <IoMdAdd /> add doc
               </p>
             </div>
@@ -78,10 +112,10 @@ const Upload = () => {
           </div>
           <div className="lineTwo">
             <label>Name</label>
-            <input type="text" />
+            <input type="text" ref={nameDoc} />
           </div>
           <div className="lineThree">
-            <button className="btn1" onClick={() => setCss(!css)}>
+            <button className="btn1" onClick={saveDocName}>
               <p>
                 <VscCheck />
               </p>
