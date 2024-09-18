@@ -6,26 +6,39 @@ let mySlice = createSlice({
     user: [],
   },
   reducers: {
-    addUser(store, action) {
-      store.user.push(action.payload);
-      console.log(store.user);
+    addUser(state, action) {
+      state.user.push(action.payload);
+      // console.log(state.user);
     },
-    deleteUser(store, action) {
-      store.user = store.user.filter((val) => val.name !== action.payload);
+    deleteUser(state, action) {
+      state.user = state.user.filter((val) => val.name !== action.payload);
     },
-    setDocName(store, action) {
+    setDocName(state, action) {
       let { selecteName, docName } = action.payload;
-      let findUser = store.user.find((e) => e.name == selecteName);
+      let findUser = state.user.find((e) => e.name === selecteName);
       if (findUser) {
         findUser.docName.push(docName);
-        console.log(store.user);
+        // console.log(state.user);
       }
+    },
+    setDocFile(state, action) {
+      let { selecteName, selectedFile } = action.payload;
+      let findUser = state.user.find((e) => e.name === selecteName);
+
     },
   },
 });
 
 export let myReducers = mySlice.actions;
 
-let Store = configureStore(mySlice);
+let Store = configureStore({
+  reducer: mySlice.reducer,
+});
+
+
+
+
+
+
 
 export default Store;

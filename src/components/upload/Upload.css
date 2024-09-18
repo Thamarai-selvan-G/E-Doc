@@ -1,99 +1,147 @@
-.userParent{
-    height: 80vh;
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;   
-    background-color: yellowgreen;
+.userParent {
+  height: 80vh;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  background-color: yellowgreen;
 }
-.nameRow{
-    width: 100%;
-    height:10%;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background-color: tomato;
+.nameRow {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: tomato;
 }
-.nameHead{
-    height: 45px;
-    width: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-size: 17px;
-    border-radius: 5px;
-    border: none;
-    /* background-color: #3B82F6; */
-    background-color: yellow;
+.nameHead {
+  height: 45px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 17px;
+  border-radius: 5px;
+  border: none;
+  /* background-color: #3B82F6; */
+  background-color: yellow;
 }
-.nameHead p{
-    display: flex;
- 
-    color: white;
-    font-size: 25px;
-    padding: 6px 8px;
-    background-color: #3B82F6;
-    border-radius: 8px;
+.nameHead p {
+  display: flex;
+
+  color: white;
+  font-size: 25px;
+  padding: 6px 8px;
+  background-color: #3b82f6;
+  border-radius: 8px;
 }
-.nameHead p:hover{
-    background-color: red;
-    transition: 0.2s;
+.nameHead p:hover {
+  background-color: red;
+  transition: 0.2s;
 }
-.userDetcontainer{
-    width: 100%;
-    height: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #3B82F6;
+.userDetcontainer {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #3b82f6;
 }
-.userList{
-    width: 20%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    background-color: yellow;
-    border: 5px double black;
+.userList {
+  width: 20%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: yellow;
+  border: 5px double black;
 }
-.fileAddContainer{
-    width: 75%;
-    height: 80%;
-    background-color: green;
+.fileAddContainer {
+  width: 75%;
+  height: 80%;
+  background-color: green;
 }
-.docNameList{
-    height: 50px;
-    width: 100%;
-    text-align: center;
-    border: 5px double red; 
+.docNameList {
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  border: 5px double red;
 }
-.style{
-    width: 95%;
-    height: 70%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: palegreen
+.style {
+  width: 95%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: palegreen;
 }
-.docNameList p{
-    font-size: 17px;
-    padding: 5px;
-    color: white;
-    background-color: #3B82F6;
+.docNameList p {
+  font-size: 17px;
+  padding: 5px;
+  color: white;
+  background-color: #3b82f6;
 }
-.addDocBtn{
-    padding: 7px 20px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background-color: #3B82F6;
-    color: white;
+.addDocBtn {
+  padding: 7px 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #3b82f6;
+  color: white;
 }
-.blackBox{
-    height: 100vh;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+.blackBox {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.fileParent {
+  width: 98%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  background-color: chocolate;
+}
+.fileOptio {
+  width: 70%;
+  height: 30%;
+  background-color: greenyellow;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.chooseBtn {
+  padding: 10px 15px;
+  font-size: 17px;
+  border-radius: 5px;
+  border: none;
+  background-color: #3b82f6;
+  color: white;
+  font-family: "Arvo", serif;
+}
+.chooseUpload {
+  padding: 8px 15px;
+  font-size: 17px;
+  border-radius: 5px;
+  border: none;
+  background-color: #3b82f6;
+  color: white;
+  font-family: "Arvo", serif;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.chooseCancel {
+  padding: 8px 15px;
+  font-size: 17px;
+  border-radius: 5px;
+  border: none;
+  background-color: #3b82f6;
+  color: white;
+  font-family: "Arvo", serif;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }

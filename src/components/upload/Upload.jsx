@@ -4,6 +4,7 @@ import { IoMdAdd } from "react-icons/io";
 import { SlClose } from "react-icons/sl";
 import { GrFormClose } from "react-icons/gr";
 import { VscCheck } from "react-icons/vsc";
+import { FiUpload } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { myReducers } from "../../store/Store";
 import { useState } from "react";
@@ -13,7 +14,8 @@ const Upload = () => {
     return data.user;
   });
   let dispatch = useDispatch();
-  const [selectedUser, setSelectedUser] = useState(null);
+  let [selectedUser, setSelectedUser] = useState(null);
+  let [fileCss, setFileCss] = useState(false);
 
   function deleteUser(e) {
     dispatch(myReducers.deleteUser(e));
@@ -22,21 +24,21 @@ const Upload = () => {
       setSelectedUser(null);
     }
   }
-  console.log(userDatas);
+  // console.log(userDatas);
 
   function userDocs(val) {
     if (!val) {
       setSelectedUser(null);
     }
     setSelectedUser(val);
+    setFileCss(false);
   }
 
   let [css, setCss] = useState(false);
   let nameDoc = useRef("");
-  
+
   function saveDocName() {
     if (nameDoc.current.value && selectedUser) {
-     
       dispatch(
         myReducers.setDocName({
           selecteName: selectedUser.name,
@@ -45,15 +47,36 @@ const Upload = () => {
       );
       const updatedUser = {
         ...selectedUser,
-        docName: [...selectedUser.docName, nameDoc.current.value]
+        docName: [...selectedUser.docName, nameDoc.current.value],
       };
 
-      setSelectedUser(updatedUser)
+      setSelectedUser(updatedUser);
     }
     setCss(false);
     nameDoc.current.value = "";
   }
- console.log(selectedUser)
+  //  console.log(selectedUser)
+
+  let chooseRef = useRef("");
+  function chooseFile() {
+    if (chooseRef.current) {
+      chooseRef.current.click();
+    }
+  }
+  function handleFileChange(e) {
+    const file = e.target.files[0];
+    if (file && selectedUser) {
+      const fileUrl = URL.createObjectURL(file); 
+      const updatedUser = {
+        ...selectedUser,
+        docFile: [...(selectedUser.docFile || []), fileUrl],
+      };
+
+      setSelectedUser(updatedUser);
+    }
+  }
+ 
+
   return (
     <div>
       <div className="userParent">
@@ -79,16 +102,14 @@ const Upload = () => {
           <div className="userDetcontainer">
             <div className="userList">
               <div className="style">
-                
-              {selectedUser.docName &&
-                selectedUser.docName.map((val, index) => {
-                  return (
-                    <div className="docNameList" key={index}>
-                      <p>{val}</p>
-                    </div>
-                  );
-                })}
-                
+                {selectedUser.docName &&
+                  selectedUser.docName.map((val, index) => {
+                    return (
+                      <div className="docNameList" key={index}>
+                        <p onClick={() => setFileCss(true)}>{val}</p>
+                      </div>
+                    );
+                  })}
               </div>
               <p
                 className="addDocBtn"
@@ -98,7 +119,45 @@ const Upload = () => {
                 <IoMdAdd /> add doc
               </p>
             </div>
-            <div className="fileAddContainer"></div>
+
+            {fileCss && (
+              <div className="fileAddContainer">
+                <div className="fileParent">
+                  <div className="fileOptio">
+                    <input
+                      type="file"
+                      name=""
+                      id=""
+                      style={{ display: "none" }}
+                      ref={chooseRef}
+                      onChange={handleFileChange}
+                    />
+                    <button
+                      className="chooseBtn"
+                      onClick={() => chooseFile(chooseRef)}>
+                      {" "}
+                      + choose{" "}
+                    </button>
+                    <button className="chooseUpload">
+                      {" "}
+                      <FiUpload /> Upload
+                    </button>
+                    <button className="chooseCancel">
+                      {" "}
+                      <SlClose /> Cancel
+                    </button>
+                  </div>
+                  {selectedUser &&
+                    selectedUser.docFile &&
+                    selectedUser.docFile.map((valFile, index) => (
+                      <div className="drag" key={index}>
+                        {/* <h1>{valFile}</h1> */}
+                        <img src={valFile} alt="" />
+                      </div>
+                    ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>
