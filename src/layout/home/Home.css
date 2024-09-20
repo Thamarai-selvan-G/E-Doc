@@ -83,10 +83,17 @@ body{
 }
 .lineTwo input{
     width: 60%;
-    height: 35%;
+    height: 44%;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
     border: none;
     background-color: antiquewhite;
     border-radius: 5px;
+    text-transform: capitalize;
+    padding-left: 5px;
+    outline-color: #3B82F6;
+
 }
 .lineThree{
     width: 90%;

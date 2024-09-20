@@ -56,6 +56,7 @@ const Home = () => {
             <label>Name</label>
             <input
               type="text"
+              autoFocus
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
             />
@@ -77,7 +78,7 @@ const Home = () => {
             </button>
           </div>
         </div>
-      )}
+       )} 
       <Upload />
     </div>
   );
