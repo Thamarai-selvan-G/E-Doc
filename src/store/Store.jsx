@@ -21,11 +21,7 @@ let mySlice = createSlice({
         // console.log(state.user);
       }
     },
-    setDocFile(state, action) {
-      let { selecteName, selectedFile } = action.payload;
-      let findUser = state.user.find((e) => e.name === selecteName);
 
-    },
   },
 });
 

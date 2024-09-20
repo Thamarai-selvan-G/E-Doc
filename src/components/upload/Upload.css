@@ -99,7 +99,7 @@
 }
 .fileParent {
   width: 98%;
-  height: 80%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   background-color: chocolate;
@@ -144,4 +144,35 @@
   display: flex;
   align-items: center;
   gap: 4px;
+}
+.file{
+  height: 70px;
+  width: 150px;
+}
+.drag{
+  height:60%;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  background-color: pink;
+}
+.picDiv{
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.status{
+  padding: 5px 10px;
+  color: white;
+  background-color: orangered;
+  border: none;
+  border-radius: 5px;
+}
+.drgaImg{
+  border: 2px dotted gainsboro;
+  height: 50%;
+  text-align: center;
+  font-size: 18px;
 }

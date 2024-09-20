@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { myReducers } from "../../store/Store";
 import { useState } from "react";
 import { useRef } from "react";
+
 const Upload = () => {
   let userDatas = useSelector(function (data) {
     return data.user;
@@ -16,6 +17,7 @@ const Upload = () => {
   let dispatch = useDispatch();
   let [selectedUser, setSelectedUser] = useState(null);
   let [fileCss, setFileCss] = useState(false);
+  const [dragActive, setDragActive] = useState(true);
 
   function deleteUser(e) {
     dispatch(myReducers.deleteUser(e));
@@ -45,7 +47,7 @@ const Upload = () => {
           docName: nameDoc.current.value,
         })
       );
-      const updatedUser = {
+      let updatedUser = {
         ...selectedUser,
         docName: [...selectedUser.docName, nameDoc.current.value],
       };
@@ -55,7 +57,7 @@ const Upload = () => {
     setCss(false);
     nameDoc.current.value = "";
   }
-  //  console.log(selectedUser)
+  console.log(selectedUser);
 
   let chooseRef = useRef("");
   function chooseFile() {
@@ -64,10 +66,10 @@ const Upload = () => {
     }
   }
   function handleFileChange(e) {
-    const file = e.target.files[0];
+    let file = e.target.files[0];
     if (file && selectedUser) {
-      const fileUrl = URL.createObjectURL(file); 
-      const updatedUser = {
+      let fileUrl = URL.createObjectURL(file);
+      let updatedUser = {
         ...selectedUser,
         docFile: [...(selectedUser.docFile || []), fileUrl],
       };
@@ -75,7 +77,34 @@ const Upload = () => {
       setSelectedUser(updatedUser);
     }
   }
- 
+
+  let handleDrag = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActive(true);
+  };
+
+  let handleDragLeave = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActive(false);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActive(false);
+
+    let file = e.dataTransfer.files[0];
+    if (file && selectedUser) {
+      let fileUrl = URL.createObjectURL(file);
+      let updatedUser = {
+        ...selectedUser,
+        docFile: [...(selectedUser.docFile || []), fileUrl],
+      };
+      setSelectedUser(updatedUser);
+    }
+  };
 
   return (
     <div>
@@ -147,14 +176,32 @@ const Upload = () => {
                       <SlClose /> Cancel
                     </button>
                   </div>
-                  {selectedUser &&
-                    selectedUser.docFile &&
+                  {/* {selectedUser && */}
+                  {selectedUser.docFile &&
                     selectedUser.docFile.map((valFile, index) => (
                       <div className="drag" key={index}>
-                        {/* <h1>{valFile}</h1> */}
-                        <img src={valFile} alt="" />
+                        <div className="picDiv">
+                          <img src={valFile} alt="" className="file" />
+                          <span className="status">Pending</span>
+                          <div className="cancel"></div>
+                        </div>
+
                       </div>
                     ))}
+                      {
+                        dragActive  &&   <div
+                        className={`drgaImg ${
+                          dragActive ? "drag-active" : ""
+                        }`}
+                        onDragOver={handleDrag}
+                        onDragLeave={handleDragLeave}
+                        onDrop={handleDrop}>
+                        <p>
+                          Drag & Drop files here, or click to select files
+                        </p>
+                      </div>
+                      }
+                       
                 </div>
               </div>
             )}
