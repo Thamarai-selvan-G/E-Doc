@@ -17,8 +17,8 @@ const Upload = () => {
   let dispatch = useDispatch();
   let [selectedUser, setSelectedUser] = useState(null);
   let [fileCss, setFileCss] = useState(false);
-  const [dragActive, setDragActive] = useState(true);
-
+  let [dragActive, setDragActive] = useState(true);
+  let [status, setstatus] = useState(true);
   function deleteUser(e) {
     dispatch(myReducers.deleteUser(e));
 
@@ -167,7 +167,9 @@ const Upload = () => {
                       {" "}
                       + choose{" "}
                     </button>
-                    <button className="chooseUpload">
+                    <button
+                      className="chooseUpload"
+                      onClick={() => setstatus(!status)}>
                       {" "}
                       <FiUpload /> Upload
                     </button>
@@ -182,26 +184,22 @@ const Upload = () => {
                       <div className="drag" key={index}>
                         <div className="picDiv">
                           <img src={valFile} alt="" className="file" />
-                          <span className="status">Pending</span>
+                          <span className={status ? "status" : "status2"}>
+                            Pending
+                          </span>
                           <div className="cancel"></div>
                         </div>
-
                       </div>
                     ))}
-                      {
-                        dragActive  &&   <div
-                        className={`drgaImg ${
-                          dragActive ? "drag-active" : ""
-                        }`}
-                        onDragOver={handleDrag}
-                        onDragLeave={handleDragLeave}
-                        onDrop={handleDrop}>
-                        <p>
-                          Drag & Drop files here, or click to select files
-                        </p>
-                      </div>
-                      }
-                       
+                  {dragActive && (
+                    <div
+                      className={`drgaImg ${dragActive ? "drag-active" : ""}`}
+                      onDragOver={handleDrag}
+                      onDragLeave={handleDragLeave}
+                      onDrop={handleDrop}>
+                      <p>Drag & Drop files here, or click to select files</p>
+                    </div>
+                  )}
                 </div>
               </div>
             )}
