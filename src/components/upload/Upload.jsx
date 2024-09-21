@@ -22,7 +22,6 @@ const Upload = () => {
   let [drop, setDrop] = useState(true);
   let [selectedDocName, setSelectedDocName] = useState(null);
 
-
   function deleteUser(e) {
     dispatch(myReducers.deleteUser(e));
 
@@ -110,8 +109,43 @@ const Upload = () => {
     }
   };
 
+  function cancelDoc() {
+    let updatedUser = { ...selectedUser, docFile: [] };
+    return setSelectedUser(updatedUser);
+  }
   return (
     <div>
+      {css && (
+        <div className="backBlack2">
+ <div className="userInfo">
+          <div className="lineOne">
+            <h3>Add Document Name</h3>
+            <p onClick={() => setCss(!css)}>
+              <SlClose />
+            </p>
+          </div>
+          <div className="lineTwo">
+            <label>Name</label>
+            <input type="text" autoFocus ref={nameDoc} />
+          </div>
+          <div className="lineThree">
+            <button className="btn1" onClick={saveDocName}>
+              <p>
+                <VscCheck />
+              </p>
+              Save
+            </button>
+            <button className="btn2" onClick={() => setCss(!css)}>
+              <p>
+                <GrFormClose />
+              </p>
+              Cancel
+            </button>
+          </div>
+        </div>
+        </div>
+       
+      )}
       <div className="userParent">
         <div className="nameRow">
           {userDatas &&
@@ -194,7 +228,7 @@ const Upload = () => {
                       {" "}
                       <FiUpload /> Upload
                     </button>
-                    <button className="chooseCancel">
+                    <button className="chooseCancel" onClick={cancelDoc}>
                       {" "}
                       <SlClose /> Cancel
                     </button>
@@ -208,7 +242,9 @@ const Upload = () => {
                           <span className={status ? "status" : "status2"}>
                             Pending
                           </span>
-                          <div className="cancel"></div>
+                        </div>
+                        <div className="cancel" onClick={cancelDoc}>
+                          <SlClose />
                         </div>
                       </div>
                     ))}
@@ -227,34 +263,7 @@ const Upload = () => {
           </div>
         )}
       </div>
-      {css && (
-        <div className="userInfo">
-          <div className="lineOne">
-            <h3>Add Document Name</h3>
-            <p onClick={() => setCss(!css)}>
-              <SlClose />
-            </p>
-          </div>
-          <div className="lineTwo">
-            <label>Name</label>
-            <input type="text" ref={nameDoc} />
-          </div>
-          <div className="lineThree">
-            <button className="btn1" onClick={saveDocName}>
-              <p>
-                <VscCheck />
-              </p>
-              Save
-            </button>
-            <button className="btn2" onClick={() => setCss(!css)}>
-              <p>
-                <GrFormClose />
-              </p>
-              Cancel
-            </button>
-          </div>
-        </div>
-      )}
+      
     </div>
   );
 };

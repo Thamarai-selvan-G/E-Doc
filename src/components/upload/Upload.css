@@ -27,10 +27,10 @@
   border: none;
 }
 .nameHead h4 {
-  color: black; 
+  color: black;
   cursor: pointer;
+  text-transform: capitalize;
 }
-
 .nameHead.active h4 {
   font-size: 20px;
   color: #3b82f6;
@@ -43,10 +43,12 @@
   padding: 6px 8px;
   background-color: #3b82f6;
   border-radius: 8px;
+  cursor: pointer;
 }
 .nameHead p:hover {
   background-color: red;
   transition: 0.2s;
+  cursor: pointer;
 }
 .userDetcontainer {
   width: 100%;
@@ -64,7 +66,7 @@
   align-items: center;
   justify-content: space-between;
   /* background-color: yellow; */
-  border: 5px double black;
+  border: 5px double #3b82f6;
 }
 .fileAddContainer {
   width: 75%;
@@ -76,7 +78,6 @@
   width: 70%;
   font-size: 18px;
   text-align: center;
-
 }
 .style {
   width: 95%;
@@ -84,7 +85,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: palegreen;
+  /* background-color: palegreen; */
 }
 .docNameList.activeDoc p {
   padding: 9px;
@@ -102,6 +103,7 @@
   background-color: #3b82f6;
   color: white;
   border-radius: 5px;
+  cursor: pointer;
 }
 .blackBox {
   height: 100vh;
@@ -113,15 +115,15 @@
   height: 90%;
   display: flex;
   flex-direction: column;
-  background-color: chocolate;
+  /* background-color: chocolate; */
 }
 .fileOptio {
-  width: 70%;
+  width: 100%;
   height: 30%;
-  background-color: greenyellow;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  background-color: bisque;
 }
 .chooseBtn {
   padding: 10px 15px;
@@ -156,32 +158,33 @@
   align-items: center;
   gap: 4px;
 }
-.file{
-  height: 70px;
-  width: 150px;
+.file {
+  height: 100px;
+  width: 200px;
 }
-.drag{
-  height:60%;
-  width: 70%;
+.drag {
+  height: 60%;
+  width: 100%;
   display: flex;
   align-items: center;
-  background-color: pink;
+  justify-content: space-around;
+  /* background-color: pink; */
 }
-.picDiv{
+.picDiv {
   width: 60%;
   height: 100%;
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.status{
+.status {
   padding: 5px 10px;
   color: white;
   background-color: orangered;
   border: none;
   border-radius: 5px;
 }
-.status2{
+.status2 {
   padding: 5px 10px;
   color: white;
   background-color: greenyellow;
@@ -189,9 +192,24 @@
   border-radius: 5px;
   transition: 0.7s;
 }
-.drgaImg{
+.drgaImg {
   border: 2px dotted gainsboro;
   height: 50%;
   text-align: center;
   font-size: 18px;
+}
+.cancel {
+  font-size: 32px;
+  color: red;
+  cursor: pointer;
+}
+
+
+@media (max-width : 767px){
+  .userList{
+    width: 30%;
+  }
+  .userList{
+    width: 60%;
+  }
 }

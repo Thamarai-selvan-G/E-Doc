@@ -1,142 +1,196 @@
-body{
-    margin: 0;
-    padding: 0;
-    font-family: "Arvo", serif; 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arvo", serif;
 }
-.parentContainer{
-  width: 100%;
-  height: 100vh;
+.parent {
   position: relative;
 }
-.backBlack2{
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4);
+.parentContainer {
+  width: 100%;
+  height: 100vh;
+  /* position: relative; */
 }
-.header{
-    width: 90%;
-    height: 130px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid grey;
-    /* background-color: blue; */
+.header {
+  width: 90%;
+  height: 130px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid grey;
+  /* background-color: blue; */
 }
-.addUser{
-    width: 170px;
-    height: 40px;
-    display: flex;
-    gap: 5px;
-    justify-content: center;
-    align-items: center;
-    font-size: 17px;
-    font-weight: 600;
-    border-radius: 5px;
-    border: none;
-    color: white;
-    background-color: #3B82F6;
-    font-family: "Arvo", serif;
+.addUser {
+  width: 170px;
+  height: 40px;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: #3b82f6;
+  font-family: "Arvo", serif;
+  cursor: pointer;
 }
-.addUser span{
-    font-weight: 800;
-    font-size: 25px;
+.addUser span {
+  font-weight: 800;
+  font-size: 25px;
 }
-.addUser:hover{
-    background-color: #2563EB;
-    transition: 0.2s;
+.addUser:hover {
+  background-color: #2563eb;
+  transition: 0.2s;
 }
-.userInfo{
-    height: 250px;
-    width: 600px;
-    position: absolute;
-    top: 30%;
-    left: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    border: 2px solid #3B82F6;
-    border-radius: 15px;
-    background-color: white;
+.backBlack2 {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4);
 }
-.lineOne{
-    width: 90%;
-    height: 30%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* background-color: yellow; */
+.userInfo {
+  height: 250px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 2px solid #3b82f6;
+  border-radius: 15px;
+  background-color: white;
 }
-.lineOne p{
-    font-weight: 700;
-    font-size: 27px;
-    color: red;
+.lineOne {
+  width: 90%;
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: yellow; */
 }
-.lineTwo{
-    width: 90%;
-    height: 30%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    /* background-color: violet; */
+.lineOne p {
+  font-weight: 700;
+  font-size: 27px;
+  color: red;
+  cursor: pointer;
 }
-.lineTwo input{
-    width: 60%;
-    height: 44%;
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    border: none;
-    background-color: antiquewhite;
-    border-radius: 5px;
-    text-transform: capitalize;
-    padding-left: 5px;
-    outline-color: #3B82F6;
+.lineTwo {
+  width: 90%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* background-color: violet; */
+}
+.lineTwo input {
+  width: 60%;
+  height: 44%;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: none;
+  background-color: antiquewhite;
+  border-radius: 5px;
+  text-transform: capitalize;
+  padding-left: 5px;
+  outline-color: #3b82f6;
+  padding-left: 5px;
+}
+.lineThree {
+  width: 90%;
+  height: 30%;
+  display: flex;
+  justify-content: end;
+  gap: 40px;
+  align-items: center;
+  /* background-color: tomato; */
+}
+.btn1 {
+  height: 45%;
+  width: 18%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: none;
+  border-radius: 5px;
+  font-size: 17px;
+  font-weight: 600;
+  font-family: "Arvo", serif;
+  background-color: #3b82f6;
+  color: white;
+  cursor: pointer;
+}
+.btn1:hover {
+  background-color: #2563eb;
+  transition: 0.2s;
+}
+.btn2 {
+  height: 45%;
+  width: 18%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: none;
+  border-radius: 5px;
+  font-size: 17px;
+  font-weight: 600;
+  font-family: "Arvo", serif;
+  background-color: #64748b;
+  color: white;
+  cursor: pointer;
+}
+.btn2:hover {
+  background-color: #475569;
+  transition: 0.2s;
+}
 
-}
-.lineThree{
+@media (max-width: 767px) {
+  .addUser {
+    height: 55px;
+  }
+  .fileAddContainer {
+    width: 60%;
+  }
+  .userList {
+    width: 35%;
+  }
+  .fileOptio {
+    flex-direction: column;
+    height: 50%;
+  }
+  .cancel {
+    display: none;
+  }
+  .picDiv {
+    flex-direction: column;
+  }
+  .fileParent {
+    height: 100%;
+  }
+  .userDetcontainer {
+    height: 90%;
+  }
+  .userInfo {
+    width: 340px;
+  }
+  .lineThree {
+    align-items: center;
+    justify-content: center;
+  }
+  .btn1 {
+    width: 30%;
+  }
+  .btn2 {
+    width: 30%;
+  }
+  .lineTwo input {
     width: 90%;
-    height: 30%;
-    display: flex;
-    justify-content: end;
-    gap: 40px;
-    align-items: center;
-    /* background-color: tomato; */
-}
-.btn1{
-    height: 45%;
-    width: 18%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border: none;
-    border-radius: 5px;
-    font-size: 17px;
-    font-weight: 600;
-    font-family: "Arvo", serif;
-    background-color: #3B82F6;
-    color: white;
-}
-.btn1:hover{
-    background-color: #2563EB;
-    transition: 0.2s;
-}
-.btn2{
-    height: 45%;
-    width: 18%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border: none;
-    border-radius: 5px;
-    font-size: 17px;
-    font-weight: 600;
-    font-family: "Arvo", serif;
-    background-color: #64748B;
-    color: white;
-}
-.btn2:hover{
-    background-color:#475569 ;
-    transition: 0.2s;
+  }
 }

@@ -21,7 +21,6 @@ let mySlice = createSlice({
         // console.log(state.user);
       }
     },
-
   },
 });
 
@@ -30,11 +29,5 @@ export let myReducers = mySlice.actions;
 let Store = configureStore({
   reducer: mySlice.reducer,
 });
-
-
-
-
-
-
 
 export default Store;

@@ -31,7 +31,44 @@ const Home = () => {
 
   return (
     <div className="parentContainer">
-      <div className={css ? "backBlack2" : "backBlack"}>
+       {display && (
+          <div className="backBlack2">
+            <div className="userInfo">
+              <div className="lineOne">
+                <h3>Add applicant</h3>
+                <p onClick={() => (setDisplay(!display), setCss(!css))}>
+                  <SlClose />
+                </p>
+              </div>
+              <div className="lineTwo">
+                <label>Name</label>
+                <input
+                  type="text"
+                  autoFocus
+                  value={userName}
+                  onChange={(e) => setUserName(e.target.value)}
+                />
+              </div>
+              <div className="lineThree">
+                <button className="btn1" onClick={sendUser}>
+                  <p>
+                    <VscCheck />
+                  </p>{" "}
+                  Save
+                </button>
+                <button
+                  onClick={() => (setDisplay(!display), setCss(!css))}
+                  className="btn2">
+                  <p>
+                    <GrFormClose />
+                  </p>{" "}
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      <div className="backBlack">
         <div className="header">
           <h1 className="head">Upload Documents</h1>
           <button
@@ -43,43 +80,9 @@ const Home = () => {
             Add Applicant
           </button>
         </div>
+       
+        <Upload />
       </div>
-      {display && (
-        <div className="userInfo">
-          <div className="lineOne">
-            <h3>Add applicant</h3>
-            <p onClick={() => (setDisplay(!display), setCss(!css))}>
-              <SlClose />
-            </p>
-          </div>
-          <div className="lineTwo">
-            <label>Name</label>
-            <input
-              type="text"
-              autoFocus
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
-            />
-          </div>
-          <div className="lineThree">
-            <button className="btn1" onClick={sendUser}>
-              <p>
-                <VscCheck />
-              </p>{" "}
-              Save
-            </button>
-            <button
-              onClick={() => (setDisplay(!display), setCss(!css))}
-              className="btn2">
-              <p>
-                <GrFormClose />
-              </p>{" "}
-              Cancel
-            </button>
-          </div>
-        </div>
-       )} 
-      <Upload />
     </div>
   );
 };
