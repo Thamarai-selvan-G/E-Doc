@@ -203,6 +203,29 @@
   color: red;
   cursor: pointer;
 }
+.navigateBtns{
+  width: 100%;
+  height: 50px;
+  margin: 0 auto;
+  border-top: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 10px;
+  /* background-color: yellow; */
+}
+.navBtns{
+  padding: 10px 25px;
+  font-size: 17px;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-family: "Arvo", serif;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 
 
 @media (max-width : 767px){
