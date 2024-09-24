@@ -31,10 +31,6 @@ const Upload = () => {
 
   function deleteUser(e) {     // delete user name>>>
     dispatch(myReducers.deleteUser(e));
-
-    if (selectedUser && selectedUser.name == e) {
-      setSelectedUser(null);
-    }
   }
   // console.log(userDatas);
 
